@@ -4,7 +4,11 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ 
+  base: "/sleek-personal-vista/",
+});
+
+}) => ({
   server: {
     host: "::",
     port: 8080,
