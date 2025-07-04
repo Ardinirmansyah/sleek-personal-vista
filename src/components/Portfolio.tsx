@@ -1,6 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +15,7 @@ const Portfolio = () => {
     email: '',
     message: ''
   });
-  const [formErrors, setFormErrors] = useState({});
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   // Smooth scrolling and active section detection
@@ -53,7 +59,7 @@ const Portfolio = () => {
   };
 
   const validateForm = () => {
-    const errors: any = {};
+    const errors: FormErrors = {};
     
     if (!formData.name.trim()) errors.name = 'Name is required';
     if (!formData.email.trim()) {
